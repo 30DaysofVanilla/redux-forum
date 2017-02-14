@@ -1,9 +1,9 @@
 // import axios from 'axios';
 
 
-// //actions
-// export const LOGIN = 'LOGIN';
-// export const LOGIN_ERR = 'LOGIN_ERR';
+//actions
+export const LOGIN = 'LOGIN';
+export const LOGIN_ERR = 'LOGIN_ERR';
 
 // export function loginUser(credentials) {
 
