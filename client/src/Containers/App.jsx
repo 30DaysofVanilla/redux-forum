@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actionsApi from '../actions/loginAPI';
 import LoginContainer from './LoginContainer.jsx';
+import Comments from '../Components/Comments.jsx';
 
 class App extends Component {
   constructor() {
@@ -13,7 +14,7 @@ class App extends Component {
     return (      
       <div>
         <h1 style={{fontSize: 50}}>Redux Forum</h1>
-        <LoginContainer loginUser={this.props.loginUser} />
+        <Comments />
       </div>
     )
   }
@@ -23,5 +24,6 @@ const mapStateToProps = (store) => { return {login : store.login}; }
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(Object.assign({}, actionsApi), dispatch); }
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
