@@ -1,3 +1,5 @@
+//fuck
+
 const { Message } = require('../model/postgresDB');
 
 const messageController = {};
@@ -8,7 +10,7 @@ messageController.addMessage = (req, res) => {
     messageBody, 
   } = req.body;
 
-  if (!author || !messageBody) return res.status(400).json({ err: 'Please supply a valid author and message.' }); 
+  if (!author || !messageBody ) return res.status(400).json({ err: 'Please supply a valid author and message.' }); 
 
   Message.create({ author, messageBody })
    .then(() => res.end())
