@@ -10,6 +10,8 @@ messageController.addMessage = (req, res) => {
     messageBody, 
   } = req.body;
 
+  console.log("req.body", req.body)
+
   if (!author || !messageBody ) return res.status(400).json({ err: 'Please supply a valid author and message.' }); 
 
   Message.create({ author, messageBody })
@@ -17,6 +19,12 @@ messageController.addMessage = (req, res) => {
    .catch(err => res.status(500).json({ err }));
 
 };
+
+messageController.getMessages = (req, res) => {
+  Message.find({})
+    .then(messages => res.json(messages))
+    .catch(() => res.sendStatus(400));
+}
 
 messageController.loginUser = (req, res) => {
   const { 

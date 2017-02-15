@@ -50,7 +50,7 @@ const Message  = sequelize.define('message', {
   },
 })
 
-sequelize.sync( { force: true } )
+sequelize.sync( {} )
   .catch( (error) => {
     console.log(error)
   })
