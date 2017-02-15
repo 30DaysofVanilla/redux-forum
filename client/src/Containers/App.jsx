@@ -19,11 +19,10 @@ class App extends Component {
   }
 
   render() {
-    console.log("fetched:: now chek the store out", this.props.comments);
     return (      
       <div>
         <h1 style={{fontSize: 50}}>Redux Forum</h1>
-        <Comments />
+        <Comments comments={this.props.comments}/>
       </div>
     )
   }
@@ -31,7 +30,7 @@ class App extends Component {
 
 const mapStateToProps = (store) => { 
   return {
-    login : store.login,
+    // login : store.login,
     comments: store.comments,
   };
 }
