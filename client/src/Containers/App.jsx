@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import LoginContainer from './LoginContainer.jsx';
 import Comments from '../Components/Comments.jsx';
+import UserInputs from '../Components/UserInputs.jsx';
 
 //action creators
 import * as loginActions from '../actions/loginAPI';
@@ -23,6 +24,7 @@ class App extends Component {
       <div>
         <h1 style={{fontSize: 50}}>Redux Forum</h1>
         <Comments comments={this.props.comments}/>
+        <UserInputs />
       </div>
     )
   }
