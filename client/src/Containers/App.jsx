@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+
+//react Components
 import LoginContainer from './LoginContainer.jsx';
 import Comments from '../Components/Comments.jsx';
 import UserInputs from '../Components/UserInputs.jsx';
@@ -13,10 +15,16 @@ class App extends Component {
   constructor() {
     super();
 
+    this.handleSubmit = this.handleSubmit.bind(this);
+
   }
 
   componentDidMount() {
     this.props.getComments();
+  }
+
+  handleSubmit(comment) {
+    // this.props.postComment(comment);
   }
 
   render() {
@@ -24,7 +32,7 @@ class App extends Component {
       <div>
         <h1 style={{fontSize: 50}}>Redux Forum</h1>
         <Comments comments={this.props.comments}/>
-        <UserInputs />
+        <UserInputs handleSubmit={this.handleSubmit}/>
       </div>
     )
   }
