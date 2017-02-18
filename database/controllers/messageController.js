@@ -20,8 +20,7 @@ const messageController = {
 
   getMessages(req, res) {
     Message.findAll({})
-      .then(messages => {
-        console.log("messages", messages);  res.json(messages)})
+      .then(messages => res.json(messages))
       .catch(() => res.sendStatus(400));
   },
 
