@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+
+//react Components
 import LoginContainer from './LoginContainer.jsx';
 import Comments from '../Components/Comments.jsx';
 import UserInputs from '../Components/UserInputs.jsx';
 
 //action creators
 import * as loginActions from '../actions/loginAPI';
-import * as commentActions from '../actions/getComments';
+import * as commentActions from '../actions/commentActions';
 
 class App extends Component {
   constructor() {
     super();
+
+    this.handleSubmit = this.handleSubmit.bind(this);
 
   }
 
@@ -19,12 +23,17 @@ class App extends Component {
     this.props.getComments();
   }
 
+  handleSubmit(comment) {
+    console.log("handleSubmit yo", comment)
+    this.props.postComments(comment);
+  }
+
   render() {
     return (      
       <div>
         <h1 style={{fontSize: 50}}>Redux Forum</h1>
         <Comments comments={this.props.comments}/>
-        <UserInputs />
+        <UserInputs handleSubmit={this.handleSubmit}/>
       </div>
     )
   }

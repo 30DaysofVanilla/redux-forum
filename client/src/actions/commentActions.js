@@ -1,6 +1,10 @@
 export const COMMENTS_RECEIVED = 'GET_COMMENTS';
 export const COMMENTS_RECEIVED_ERR = 'GET_COMMENTS_ERR';
 
+export const POST_COMMENTS = 'POST_COMMENTS';
+export const POST_COMMENTS_ERR = 'POST_COMMENTS_ERR';
+
+
 export function getComments() {
   const query = fetch('http://localhost:8080/api');
 
@@ -27,4 +31,20 @@ export function getComments() {
         })
       })
   }
+}
+
+
+export function postComments(comment) {
+  console.log("postComment", comment)
+  const query = fetch('http://localhost:8080/api/messages/post', {
+    method: 'post',
+    body: JSON.stringify(comment)
+  });
+
+  // //update the state with the most recent posted comment
+  return {
+    type: POST_COMMENTS,
+    payload: comment
+  }
+
 }

@@ -7,8 +7,6 @@ const Comments = (props) => {
     return <Comment key={i} comment={comment} /> 
   });
 
-  console.log("commentYo", comment)
-
   return (
     <div>
       {comment}

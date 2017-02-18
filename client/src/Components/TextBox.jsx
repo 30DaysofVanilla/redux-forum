@@ -1,11 +1,15 @@
 import React from 'react';
 
-const TextBox = () => {
+const TextBox = (props) => {
+
+  let username, comment;
+
   return (
     <div>
-      <form>
-        <textarea placeholder="Insert Comment Here..."></textarea>
-        <input type="submit" value="Submit"/>
+      <form onSubmit={(e)=> { e.preventDefault(); props.handleSubmit({"author": username.value, "messageBody": comment.value})}} >
+        <input placeholder="username..." type="text" ref={(input) => { username = input; }} />
+        <textarea placeholder="Insert Comment Here..." ref={(input) => { comment = input; }}></textarea>
+        <button type="submit">Submit Comment</button>
       </form>
     </div>
   )

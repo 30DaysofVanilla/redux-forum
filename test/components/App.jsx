@@ -22,6 +22,7 @@ const fakeStore = (injectedState, reducers) => {
 describe('<App/>', function() {
 
   it('renders one <LoginForm /> component', function() {
+    
     const testStore = fakeStore({
       username: '',
       password: '',

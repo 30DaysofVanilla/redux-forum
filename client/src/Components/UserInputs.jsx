@@ -1,10 +1,10 @@
 import React from 'react';
 import TextBox from './TextBox.jsx';
 
-const UserInputs = () => {
+const UserInputs = (props) => {
   return (
     <div>
-      <TextBox />
+      <TextBox handleSubmit={props.handleSubmit}/>
     </div>
   )
 }
