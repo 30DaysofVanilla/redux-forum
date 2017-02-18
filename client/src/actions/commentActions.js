@@ -37,7 +37,11 @@ export function getComments() {
 export function postComments(comment) {
   console.log("postComment", comment)
   const query = fetch('http://localhost:8080/api/messages/post', {
-    method: 'post',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    method: 'POST',
     body: JSON.stringify(comment)
   });
 
