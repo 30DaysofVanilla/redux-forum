@@ -14,9 +14,7 @@ import * as commentActions from '../actions/commentActions';
 class App extends Component {
   constructor() {
     super();
-
     this.handleSubmit = this.handleSubmit.bind(this);
-
   }
 
   componentDidMount() {
@@ -24,7 +22,6 @@ class App extends Component {
   }
 
   handleSubmit(comment) {
-    console.log("handleSubmit yo", comment)
     this.props.postComments(comment);
   }
 
