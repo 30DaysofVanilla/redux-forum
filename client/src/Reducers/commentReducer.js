@@ -1,5 +1,5 @@
 //need actions here
-import {COMMENTS_RECEIVED, COMMENTS_RECEIVED_ERR} from '../actions/getComments';
+import {COMMENTS_RECEIVED, COMMENTS_RECEIVED_ERR, POST_COMMENTS, POST_COMMENTS_ERR} from '../actions/commentActions';
 //initial State
 const initialState = { comments: [] };
 

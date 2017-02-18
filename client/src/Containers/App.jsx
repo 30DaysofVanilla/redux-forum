@@ -9,7 +9,7 @@ import UserInputs from '../Components/UserInputs.jsx';
 
 //action creators
 import * as loginActions from '../actions/loginAPI';
-import * as commentActions from '../actions/getComments';
+import * as commentActions from '../actions/commentActions';
 
 class App extends Component {
   constructor() {
@@ -24,7 +24,8 @@ class App extends Component {
   }
 
   handleSubmit(comment) {
-    // this.props.postComment(comment);
+    console.log("handleSubmit yo", comment)
+    this.props.postComments(comment);
   }
 
   render() {
