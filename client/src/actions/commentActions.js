@@ -7,14 +7,14 @@ export const POST_COMMENTS_ERR = 'POST_COMMENTS_ERR';
 
 export function getComments() {
   const query = fetch('http://localhost:8080/api');
-  
+
   return (dispatch) => {
     query
-      .then(messages => {
+      .then(comments => {
         
         dispatch({
           type: COMMENTS_RECEIVED,
-          payload: messages.json()
+          payload: comments.json()
         })
       })
       .catch(err => {
@@ -36,12 +36,20 @@ export function postComments(comment) {
     },
     method: 'POST',
     body: JSON.stringify(comment)
+  }).catch(err => { 
+      return (dispatch) => {
+        dispatch({
+          type: COMMENTS_RECEIVED_ERR,
+          payload: err
+        });
+      }
   });
 
-  // //update the state with the most recent posted comment
+  comment.createdAt = new Date().toUTCString();
+
   return {
     type: POST_COMMENTS,
-    payload: comment
+    payload: comment,
   }
 
 }
